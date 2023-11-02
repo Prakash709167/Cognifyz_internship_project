@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level1_Task2</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- =========================== Work 1========================= -->
+    <div class="work1">
+      <button class="color-change-button" onclick="changeColor()">
+        Click me
+      </button>
+    </div>
+
+    <!-- =========================== work 3========================== -->
+    <div class="work3">
+      <h1>Basic Calculator</h1>
+      <form>
+        <input class = "work3_input" type="number" id="num1" placeholder="Enter a number" />
+        <input class = "work3_input" type="number" id="num2" placeholder="Enter another number" />
+        <button class = "work3_input_bt" type="button" onclick="addNumbers()">Add</button>
+      </form>
+      <p id="result">Result:</p>
+    </div>
+    <!-- =========================== javascript ========================== -->
+    <script>
+      function changeColor() {
+        // Get the button element
+        var button = document.querySelector(".color-change-button");
+
+        // Generate a random color
+        var newColor = getRandomColor();
+
+        // Set the button's background color to the new color
+        button.style.backgroundColor = newColor;
+      }
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      //<!-- =========================== work 2 js ========================== -->
+
+      // Get the current hour (0-23) from the system's clock
+      var currentHour = new Date().getHours();
+
+      // Define a variable to store the greeting message
+      var greeting;
+
+      // Determine the appropriate greeting based on the current time
+      if (currentHour >= 5 && currentHour < 12) {
+        greeting = "Good morning!";
+      } else if (currentHour >= 12 && currentHour < 18) {
+        greeting = "Good afternoon!";
+      } else {
+        greeting = "Good evening!";
+      }
+
+      // Display the greeting in an alert box
+      alert(greeting);
+
+     // <!-- =========================== work 3 js ========================== -->
+     
+     function addNumbers() {
+            // Get the values from the input fields
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            // Check if the input is valid
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").textContent = "Please enter valid numbers.";
+            } else {
+                // Perform the addition
+                var sum = num1 + num2;
+
+                // Display the result
+                document.getElementById("result").textContent = "Result: " + sum;
+            }
+        }
+
+
+    </script>
+  </body>
+</html>
